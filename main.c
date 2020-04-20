@@ -4,6 +4,8 @@
 #define VERSION "0.0.1"
 
 void log_warn(const char *str);
+void log_info(const char *str);
+void log_danger(const char *str);
 
 void log_warn(const char *str)
 {
