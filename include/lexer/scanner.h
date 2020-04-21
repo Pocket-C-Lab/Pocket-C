@@ -1,12 +1,16 @@
 #include <stdio.h>
+#include <string.h>
 
+/*
+ * Begining of KEYWORDS
+ */
 typedef struct Keywords
 {
     char *__auto;
     char *__break;
     char *__case;
     char *__char;
-    char *_const;
+    char *__const32;
     char *__continue;
     char *__default;
     char *__do;
@@ -23,7 +27,7 @@ typedef struct Keywords
     char *__register;
     char *__return;
     char *__short;
-    char *_signed;
+    char *__signed32;
     char *__sizeof;
     char *__static;
     char *__struct;
@@ -32,14 +36,17 @@ typedef struct Keywords
     char *__union;
     char *__unsigned;
     char *__void;
-    char *_volatile;
+    char *__volatile32;
     char *__while;
 } KEYWORDS;
+/*
+ * End of KEYWORDS
+ */
+
 
 /*
  * Begining of OPERATORS
  */
-
 typedef struct Arithmetic
 {
     char *__addition;
@@ -61,7 +68,6 @@ typedef struct Relational
     char *__lesser;
     char *__greater_or_equal;
     char *__lesser_or_equal;
-
 } RELATIONAL;
 
 typedef struct Logical
@@ -98,7 +104,6 @@ typedef struct Assignment
 
 typedef struct Misc
 {
-    char *__sizeof;
     char *__reference;
     char *__pointer;
     char *__ternary;
@@ -120,15 +125,71 @@ typedef struct Operators
     ASSIGNMENT assignment;
     MISC misc;
 } OPERATORS;
-
 /*
  * End of OPERATORS
  */
 
+
+/*
+ * Begining of STRINGS
+ */
+typedef struct Strings
+{
+    char* __char;
+    char* __string;
+} STRINGS;
+/*
+ * End of STRINGS
+ */
+
+
+/*
+ * Begining of CONSTANTS
+ */
+typedef struct Constants
+{
+    char* _constant;
+} CONSTANTS;
+/*
+ * End of CONSTANTS
+ */
+
+
+/*
+ * Begining of CONSTANTS
+ */
+typedef struct Symbols
+{
+    char* _symbol;
+} SYMBOLS;
+/*
+ * End of CONSTANTS
+ */
+
+
+/*
+ * Begining of IDENTIFIERS
+ */
+typedef struct Identifiers
+{
+    char* __identifier;
+} IDENTIFIERS;
+/*
+ * End of IDENTIFIERS
+ */
+
+
+/*
+ * Begining of TOKENS
+ */
 typedef struct Tokens
 {
     KEYWORDS keywords;
     OPERATORS operators;
+    STRINGS strings;
+    CONSTANTS constants;
+    SYMBOLS symbols;
+    IDENTIFIERS identifiers;
 } TOKENS;
 
 enum Token_nums
@@ -173,5 +234,53 @@ enum Token_nums
     __PRE_INCREMENT__,
     __POST__INCREMENT__,
     __PRE_DECREMENT__,
-    __POST_DECREMENT__
+    __POST_DECREMENT__,
+    __EQUAL__,
+    __NOT_EQUAL__,
+    __GREATER__,
+    __LESSER__,
+    __GREATER_OR_EQUAL__,
+    __LESSER_OR_EQUAL__,
+    __AND__,
+    __OR__,
+    __NOT__,
+    __AND_BITWISE__,
+    __OR_BITWISE__,
+    __NOT_BITWISE__,
+    __XOR_BITWISE__,
+    __LEFT_SHIFT_BITWISE__,
+    __RIGHT_SHIFT_BITWISE__,
+    __ASSIGN__,
+    __ADD_ASSIGN__,
+    __SUBTRACT_ASSIGN__,
+    __MULTIPLY_ASSIGN__,
+    __DIVIDE_ASSIGN__,
+    __MODULUS_ASSIGN__,
+    __LEFT_SHIFT_ASSIGN__,
+    __RIGHT_SHIFT_ASSIGN__,
+    __AND_ASSIGN__,
+    __OR_ASSIGN__,
+    __XOR_ASSIGN__,
+    __REFERENCE__,
+    __POINTER__,
+    __TERNARY__,
+    __COMMA__,
+    __SEMICOLON__,
+    __DOT__,
+    __ARROW__,
+    __TYPE_CONVERSION__,
+    __OPENING_BRACKET__,
+    __CLOSING_BRACKET__,
+    __STR_CHAR__,
+    __STRING__,
+    __CONSTANT__,
+    __SYMBOL__,
+    __IDENTIFIER__
 };
+/*
+ * End of TOKENS
+ */
+
+
+// create tokens from a .c source file
+TOKENS tokenizer(FILE *file);
