@@ -1,7 +1,15 @@
 #include <stdio.h>
+#include <regex.h>
 #include "include/conio.h"
 
 #define VERSION "0.0.1"
+
+// https://www.educative.io/edpresso/how-to-write-regular-expressions-in-c
+// http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf
+// https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/
+// https://www.tutorialspoint.com/c_standard_library/c_function_strtok.htm
+// https://stackoverflow.com/questions/10325565/tokenize-a-source-code
+// https://www.geeksforgeeks.org/c-program-detect-tokens-c-program/
 
 void log_warn(const char *str);
 void log_info(const char *str);

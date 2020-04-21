@@ -133,11 +133,11 @@ typedef struct Operators
 /*
  * Begining of STRINGS
  */
-typedef struct Strings
+typedef struct Literals
 {
     char* __char;
     char* __string;
-} STRINGS;
+} LITERALS;
 /*
  * End of STRINGS
  */
@@ -186,10 +186,11 @@ typedef struct Tokens
 {
     KEYWORDS keywords;
     OPERATORS operators;
-    STRINGS strings;
+    LITERALS literals;
     CONSTANTS constants;
     SYMBOLS symbols;
     IDENTIFIERS identifiers;
+    char* token_list;
 } TOKENS;
 
 enum Token_nums
@@ -271,8 +272,8 @@ enum Token_nums
     __TYPE_CONVERSION__,
     __OPENING_BRACKET__,
     __CLOSING_BRACKET__,
-    __STR_CHAR__,
-    __STRING__,
+    __LITERAL_CHAR__,
+    __LITERAL_STRING__,
     __CONSTANT__,
     __SYMBOL__,
     __IDENTIFIER__
