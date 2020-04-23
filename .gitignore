@@ -11,3 +11,4 @@ CTestTestfile.cmake
 _deps
 *.exe
 *.o
+Object.cpp

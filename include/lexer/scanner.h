@@ -156,14 +156,14 @@ typedef struct Constants
 
 
 /*
- * Begining of CONSTANTS
+ * Begining of SYMBOLS
  */
 typedef struct Symbols
 {
     char* _symbol;
 } SYMBOLS;
 /*
- * End of CONSTANTS
+ * End of SYMBOLS
  */
 
 
